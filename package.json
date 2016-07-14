@@ -1,0 +1,22 @@
+{
+  "name": "hewjs",
+  "version": "0.0.0",
+  "description": "Data visualization and you",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bulbasaur-HRR17/bulbasaur-HRR17.git"
+  },
+  "keywords": [
+    "charts"
+  ],
+  "author": "bulbasaur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bulbasaur-HRR17/bulbasaur-HRR17/issues"
+  },
+  "homepage": "https://github.com/bulbasaur-HRR17/bulbasaur-HRR17#readme"
+}
