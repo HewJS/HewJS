@@ -33,7 +33,7 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Quote from You ##
   > Friends don't let friends use excel.
-  > Dr. Jamie Thomas Long the 3rd (Product Owner and your friend)
+  > - Dr. Jamie Thomas Long the 3rd (your friend and product owner)
 
 ## How to Get Started ##
   > Visit our website at [HewJS](hewjs.herokuapp.com)
