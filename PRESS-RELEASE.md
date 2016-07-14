@@ -19,26 +19,29 @@ Once the project moves into development, the press release can be used as a touc
 ## Our Mission ##
   > Cutting up your raw data and smoothing it out for the future of mankind.
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+## Who is this for? ##
+  > Anyone who has perfectly clean data (for now) that needs visualization without the need for tensor flow.
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > HewJS makes all the graphs you will ever need without the headache of excel or the exorbitant prices of our competitors.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > You spend too much money on aspirin when dealing with excel menus.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > HewJS interprets data you provide. With our easy-to-use interface, you will be able to select a visualization that meets your specific needs.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > Friends don't let friends use excel.
+  > Dr. Jamie Thomas Long the 3rd (Product Owner and your friend)
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > Visit our website at [HewJS](hewjs.herokuapp.com)
+  > Follow our intuitive perfectly designed UI to get started!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > For first time in my life I no longer need the expired aspirin in my medicine cabinet. With HewJS my mental and physical well being has benefitted greatly.
+  > - Robin Kim (Hack Reactor)
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Sign up now and your excel nightmares will become a thing of the past!!
