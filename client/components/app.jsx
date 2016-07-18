@@ -1,16 +1,24 @@
+const Input = require('./input.jsx');
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: 'HewJS in React'
-    }
+      message: 'HewJS in React',
+      input: 'this is the data from the input field'
+    };
   }
 
   render() {
     return (
       <div>
-        <h1>{this.state.message}</h1>
+        <div>
+          <h1>{this.state.message}</h1>
+        </div>
+        <div>
+          <Input input={this.state.input} context={this} />
+        </div>
       </div>
     );
   }
