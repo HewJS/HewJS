@@ -1,5 +1,3 @@
-import React from 'react';
-
 // This component allows users to associate data with chart axes.
 // The association is stored as a state on the App component.
 

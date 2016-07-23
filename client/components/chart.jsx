@@ -78,17 +78,6 @@ class Chart extends React.Component {
     makeCharts(data, 1500, 900);
   }
 
-  // componentDidMount() {
-  //   makeCharts(this.state.data, 800, 600);
-  //   // makeCharts(data1, 800, 600);
-  // }
-
-  // componentDidUpdate() {
-  //   deleteCharts();
-  //   makeCharts(this.state.data, 800, 600);
-  //   // makeCharts(data2, 800, 600);
-  // }
-
   render() {
     return (
       <div>

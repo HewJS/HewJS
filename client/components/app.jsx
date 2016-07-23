@@ -104,4 +104,3 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, document.getElementsByClassName('app')[0]);
-
