@@ -1,5 +1,6 @@
-// This component allows users to associate data with chart axes.
-// The association is stored as a state on the App component.
+// This component allows users to associate data with chart axes
+// by calling setAxes in App. the association is stored as a state
+// on the App component.
 
 const Data = (props) => {
 

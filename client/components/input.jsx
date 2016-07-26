@@ -1,10 +1,19 @@
 import Dropzone from 'react-dropzone';
 
+// This component handles data input from the user. It uses Dropzone
+// to handle drag-and-dropped files, and a text field to handle direct
+// typing/pasting.
+
 const Input = (props) => {
 
   // this variable is used for debouncing (live input update)
   let liveReload;
 
+  // This function takes in a comma separated string as input and
+  // returns a matrix representing the input. The returned value
+  // is transposed due our wish for the 'correct' data format to be
+  // arranged column-wise, and our current implementation for formatting.
+  // Handles "quoted,commas"
   const parseCSV = (input) => {
     input = input.split('\n').filter(line => !!line);
     input = input.map(function(line) {
@@ -27,6 +36,8 @@ const Input = (props) => {
     return transpose(input);
   };
 
+  // This function is used to read the file dropped into
+  // the Dropzone div.
   const handleInput = (files) => {
     const context = props.context;
     const file = files[0];

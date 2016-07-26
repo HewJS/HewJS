@@ -1,6 +1,6 @@
 // This component handles chart type selection for each data series.
-// The association is stored as an array ``types'' on the state of the App component,
-// where types[index] is associated with choosers[index+1]
+// The association is stored as an object `types' on the state of the App component,
+// where {series: 'chartType'}
 
 const Choose = (props) => {
 

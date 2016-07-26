@@ -10,12 +10,15 @@ import ReactDOM from 'react-dom';
 
 window.React = React;
 
+// The App component holds all of the other subcomponents
+// Its state stores all of the user's input: data and axes selection
+// This state is passed on to the relevant components
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: 'HewJS in React',
       input: '',
       choosers: ['xAxis', 'y0'],
       types: {},
@@ -25,6 +28,9 @@ class App extends React.Component {
     };
   }
 
+  // Called when the add new series button is pressed.
+  // Adds another entry into state.users, and increments
+  // state.yCounter for the next invocation.
   makeNewY() {
     this.setState({
       yCounter: this.state.yCounter+1,
@@ -32,11 +38,15 @@ class App extends React.Component {
     });
   }
 
+  // Passed to the Choose component.
+  // Called when the user selects a chart type:
   assignType(e) {
     this.state.types[e.target.dataset.axis] = e.target.value;
     this.setState({types: this.state.types});
   }
 
+  // Passed to the Data component.
+  // Called when the user selects axes for the data.
   setAxes(e) {
     if (e.target.value !== "---choose-a-value---") {
       let axis;
@@ -51,12 +61,11 @@ class App extends React.Component {
     }
   }
 
-  /*
-    {
-      name: [values...],
-      name: [values...]…
-    }
-  */
+  // Formats a 2D array into an object
+  // {
+  //   series1: [values...],
+  //   series2: [values...]…
+  // }
   formatter(matrix) {
     let result = {};
     for (let i = 0; i < matrix.length; i++){
