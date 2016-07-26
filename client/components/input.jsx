@@ -1,10 +1,19 @@
 import Dropzone from 'react-dropzone';
 
+// This component handles data input from the user. It uses Dropzone
+// to handle drag-and-dropped files, and a text field to handle direct
+// typing/pasting.
+
 const Input = (props) => {
 
   // this variable is used for debouncing (live input update)
   let liveReload;
 
+  // This function takes in a comma separated string as input and
+  // returns a matrix representing the input. The returned value
+  // is transposed due our wish for the 'correct' data format to be
+  // arranged column-wise, and our current implementation for formatting.
+  // Handles "quoted,commas"
   const parseCSV = (input) => {
     input = input.split('\n').filter(line => !!line);
     input = input.map(function(line) {
@@ -27,6 +36,8 @@ const Input = (props) => {
     return transpose(input);
   };
 
+  // This function reads the contents of the dropped file, and sets the
+  // state on the App component.
   const handleInput = (files) => {
     const context = props.context;
     const file = files[0];
@@ -40,6 +51,8 @@ const Input = (props) => {
     read.readAsText(file);
   };
 
+  // This function reads the contents of the text area, and sets the
+  // state on the App component.
   const handleText = () => {
     let input = $('#textArea').val();
     if (input) {
@@ -49,6 +62,7 @@ const Input = (props) => {
     }
   };
 
+  // Enables live reload of the text input field.
   const liveText = () => {
     clearTimeout(liveReload);
     liveReload = setTimeout(function() {
@@ -68,6 +82,8 @@ const Input = (props) => {
     return result;
   };
 
+  // Function to return a string representation (in CSV format)
+  // of a matrix.
   const printCSV = (matrix) => {
     return matrix.map(row => row.map(entry =>
       entry.indexOf(',') === -1 ? entry : '"'+entry+'"')
@@ -75,6 +91,9 @@ const Input = (props) => {
     ).join('\n');
   };
 
+  // Called when `Format data' is clicked. Transposes the contents
+  // of the text input field, and updates the state on App to reflect
+  // the change.
   const transposeInput = () => {
     let input = $('#textArea').val();
     if (input) {

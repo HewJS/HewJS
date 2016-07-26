@@ -1,12 +1,14 @@
-// import dimple from 'dimple-js';
+// Need to specify path to dimple as there is an issue when
+// importing dimple in the usual way
 import dimple from '../node_modules/dimple-js/dist/dimple.latest.js';
 import d3 from 'd3';
 
-// data === {
-//   dataset: ....,
-//   x: the name of the x-axis,
-//   charts: [ {y: ...., type: .... }, {y: ...., type: .... }, .... ]
-// }
+// Incoming data format:
+  // data === {
+  //   dataset: ....,
+  //   x: the name of the x-axis,
+  //   charts: [ {y: ...., type: .... }, {y: ...., type: .... }, .... ]
+  // }
 
 let makeCharts = function(data, height, width) {
   let svg = dimple.newSvg(".chart", height, width).attr('class', 'chartSvg');
@@ -16,22 +18,6 @@ let makeCharts = function(data, height, width) {
     // add the category axis and measure axis...
     // add the series
     // draw
-
-  // OLD VERSION
-  // data.charts.forEach((chart) => {
-  //   chart.type ? chart.type : "scatter";
-  //   if (chart.y) {
-  //     let newChart = new dimple.chart(svg, data.dataset);
-  //     let newChartType = typify(chart.type);
-
-  //     newChart.addCategoryAxis('x', data.x);
-  //     newChart.addMeasureAxis('y', chart.y);
-
-  //     newChart.addSeries(null, newChartType);
-
-  //     newChart.draw();
-  //   }
-  // });
 
   let newChart = new dimple.chart(svg, data.dataset);
   let x = newChart.addCategoryAxis('x', data.x);

@@ -1,28 +1,39 @@
 import { makeCharts, deleteCharts } from '../chartGenerator.js';
 import React from 'react';
 
-// let dataset = [
-//   { "Word": 35, "Awesomeness":2000 },
-//   { "Word": 34, "Awesomeness":3000 }
-// ];
+// Sample data format:
 
-// let data1 = {
-//   dataset: dataset,
-//   x: "Word",
-//   charts: [{ y: "Awesomeness", type: "bar" }, { y: "Awesomeness", type: "scatter" }]
-// };
+  // This is the entire dataset the user pastes into Input
+  //   let dataset = [
+  //     { "Word": 35, "Awesomeness":2000 },
+  //     { "Word": 34, "Awesomeness":3000 }
+  //   ];
 
-// let data2 = {
-//   dataset: dataset,
-//   x: "Awesomeness",
-//   charts: [{ y: "Word", type: "bar" }, { y: "Word", type: "scatter" }]
-// };
+  // This is the format that makeCharts requires.
+  // Each set contains information about the label on the x-axis
+  // and y-axes. Multiple entries in charts is allowed.
+  //   let data1 = {
+  //     dataset: dataset,
+  //     x: "Word",
+  //     charts: [{ y: "Awesomeness", type: "bar" }, { y: "Awesomeness", type: "scatter" }]
+  //   };
+
+  //   let data2 = {
+  //     dataset: dataset,
+  //     x: "Awesomeness",
+  //     charts: [{ y: "Word", type: "bar" }, { y: "Word", type: "scatter" }]
+  //   };
+
+// Chart component contains formatting functions to process the raw data
+// handed from App into a usable format for makeCharts (see example above).
+// Chart relies on life-cycle events so it cannot be a stateless component.
 
 class Chart extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  // Identical to App's formatter
   formatter(matrix) {
     let result = {};
     for (let i = 0; i < matrix.length; i++){
@@ -37,6 +48,8 @@ class Chart extends React.Component {
     return result;
   }
 
+  // Formats the `charts' field for the `props' to be handed down to
+  // makeCharts.
   formatChartForProp(nextProps) {
     console.log("Format Chart For Props:");
     let result = [];
@@ -51,6 +64,8 @@ class Chart extends React.Component {
     return result;
   }
 
+  // Formats the `dataset' field for the `props' to be handed down to
+  // makeCharts.
   formatDataForProp(input) {
     const result = [];
     const keys = Object.keys(input);
@@ -64,6 +79,8 @@ class Chart extends React.Component {
     return result;
   }
 
+  // Formats the entire `props' to be handed down to makeCharts using
+  // some helper functions.
   formatPropForChart(nextProps) {
     const chartProp = {};
     chartProp.dataset = this.formatDataForProp(this.formatter(nextProps.app.input));
@@ -72,6 +89,9 @@ class Chart extends React.Component {
     return chartProp;
   }
 
+  // Updates the `props' handed down to makeCharts whenever the props
+  // update (which is the state on the App component), allowing for
+  // live chart updating.
   componentWillReceiveProps(nextProps) {
     let data = this.formatPropForChart(nextProps);
     deleteCharts();
