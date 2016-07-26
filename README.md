@@ -38,6 +38,8 @@
 - React
 - ReactDOM
 - Babel
+- MongoDB/mongoose
+- Dimple
 
 ## Development
 
