@@ -36,8 +36,8 @@ const Input = (props) => {
     return transpose(input);
   };
 
-  // This function is used to read the file dropped into
-  // the Dropzone div.
+  // This function reads the contents of the dropped file, and sets the
+  // state on the App component.
   const handleInput = (files) => {
     const context = props.context;
     const file = files[0];
@@ -51,6 +51,8 @@ const Input = (props) => {
     read.readAsText(file);
   };
 
+  // This function reads the contents of the text area, and sets the
+  // state on the App component.
   const handleText = () => {
     let input = $('#textArea').val();
     if (input) {
@@ -60,6 +62,7 @@ const Input = (props) => {
     }
   };
 
+  // Enables live reload of the text input field.
   const liveText = () => {
     clearTimeout(liveReload);
     liveReload = setTimeout(function() {
@@ -79,6 +82,8 @@ const Input = (props) => {
     return result;
   };
 
+  // Function to return a string representation (in CSV format)
+  // of a matrix.
   const printCSV = (matrix) => {
     return matrix.map(row => row.map(entry =>
       entry.indexOf(',') === -1 ? entry : '"'+entry+'"')
@@ -86,6 +91,9 @@ const Input = (props) => {
     ).join('\n');
   };
 
+  // Called when `Format data' is clicked. Transposes the contents
+  // of the text input field, and updates the state on App to reflect
+  // the change.
   const transposeInput = () => {
     let input = $('#textArea').val();
     if (input) {
